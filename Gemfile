@@ -10,7 +10,13 @@ end
 gem 'rails', '~> 5.0.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
-# Use Puma as the app server
+source 'https://rubygems.org'
+
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -38,6 +44,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -52,5 +59,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'friendly_id', '~> 5.1.0'
-gem 'devise', '~> 4.3'
+gem 'devise', '~> 4.2'
+
 gem 'bootstrap', '~> 4.0.0.alpha6'
+
+gem 'devcamp_view_tool', git: 'https://github.com/jordanhudgens/devcamp_view_tool'
